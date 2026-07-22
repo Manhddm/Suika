@@ -1299,6 +1299,7 @@ MonoBehaviour:
   fruitFactory: {fileID: 247096653}
   fruitPrefabs:
   - {fileID: 6161838929474417679, guid: 7fb1c39030901d141a23d03280925223, type: 3}
+  fruitDatabase: {fileID: 11400000, guid: 07ebfd3e11a2679478cb5a2afb004811, type: 2}
 --- !u!4 &2042915445
 Transform:
   m_ObjectHideFlags: 0

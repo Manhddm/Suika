@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Suika.Scripts.Database;
 using Suika.Scripts.Factory;
 using Suika.Scripts.Gameplay;
 using Suika.Scripts.Gameplay.Fruits;
@@ -12,6 +13,7 @@ namespace Suika.Scripts
         [SerializeField] private BoardController boardController;
         [SerializeField] private FruitFactory fruitFactory;
         [SerializeField] private List<BaseFruit> fruitPrefabs;
+        [SerializeField] private FruitDatabase fruitDatabase;
 
         private void Awake()
         {
@@ -20,7 +22,7 @@ namespace Suika.Scripts
         private void Init()
         {
             fruitFactory.Init(fruitPrefabs);
-            boardController.Init(fruitFactory);
+            boardController.Init(fruitFactory, fruitDatabase);
         }
     }
 }

@@ -47,8 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e2afdafeae40078e6401a3476b12b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Suika.Scripts.Gameplay.Fruits.AppleFruit
-  fruitType: 5
-  nextFruitType: 6
+  fruitType: 6
 --- !u!58 &830120250108830431
 CircleCollider2D:
   m_ObjectHideFlags: 0
