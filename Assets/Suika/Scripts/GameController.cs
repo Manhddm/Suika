@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using R3;
 using Suika.Scripts.Database;
@@ -25,6 +26,12 @@ namespace Suika.Scripts
         {
             Init();
         }
+
+        private void Start()
+        {
+            SetupGame();
+        }
+
         private void Init()
         {
             _gameplayContext = new GameplayContext();
@@ -36,6 +43,16 @@ namespace Suika.Scripts
             }).AddTo(ref _disposableBag);
             
             gameplayScreen.Initialize(_gameplayContext, fruitDatabase);
+        }
+
+        private void SetupGame()
+        {
+            GameEvent.GameOver += LostGame;
+        }
+
+        private void LostGame()
+        {
+            Debug.Log("<color=#ff8282>Game Over</color>");
         }
         private void OnDestroy()
         {

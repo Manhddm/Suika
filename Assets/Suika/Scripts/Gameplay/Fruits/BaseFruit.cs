@@ -11,6 +11,7 @@ namespace Suika.Scripts.Gameplay.Fruits
         [SerializeField] private FruitType fruitType;
         public Rigidbody2D PhysicsBody => physicsBody;
         public bool IsMerging { get; set;}
+        public bool IsInBox { get; set; }
         public ReactiveCommand<(BaseFruit fruit1, BaseFruit fruit2)> OnMergeCommand { get; } = new ReactiveCommand<(BaseFruit fruit1, BaseFruit fruit2)>();
         
         public FruitType FruitType => fruitType;
@@ -42,6 +43,8 @@ namespace Suika.Scripts.Gameplay.Fruits
                     }
                 }
             }
+
+            IsInBox = true;
         }
 
         public void ReturnToPool()

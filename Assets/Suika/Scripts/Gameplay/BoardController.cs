@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using R3;
 using Suika.Scripts.Database;
 using Suika.Scripts.Factory;
@@ -45,6 +46,7 @@ namespace Suika.Scripts.Gameplay
                 .Subscribe(MoveFruit)
                 .AddTo(ref _disposableBag);
             _inputController.TouchEndedCommand
+                .ThrottleFirst(TimeSpan.FromSeconds(0.5f))
                 .Subscribe(_ => DropFruit())
                 .AddTo(ref _disposableBag);
         }
@@ -77,9 +79,10 @@ namespace Suika.Scripts.Gameplay
 
         #region Gameplay
 
-        private void DropFruit()
+        private async UniTask DropFruit()
         {
             _currentFruit.PhysicsBody.simulated = true;
+            await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
             PickUpFruit();
         }
 

@@ -12,7 +12,6 @@ namespace Suika.Scripts.Input
         public ReactiveCommand<Vector2> TouchBeganCommand { get; } = new();
         public ReactiveCommand<Vector2> TouchMovedCommand { get; } = new();
         public ReactiveCommand<Vector2> TouchEndedCommand { get; } = new();
-        private bool _isDragging;
         private Pointer _activePointer;
         private List<RaycastResult> _raycastResults = new();
 
@@ -34,15 +33,13 @@ namespace Suika.Scripts.Input
                     _activePointer = null;
                     return;
                 }
-
-                _isDragging = true;
+                
                 TouchBeganCommand.Execute(_activePointer.position.ReadValue());
                 return;
             }
 
             if (!_activePointer.added)
             {
-                _isDragging = false;
                 _activePointer = null;
                 return;
             }
