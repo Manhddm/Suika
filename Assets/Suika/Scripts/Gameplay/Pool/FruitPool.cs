@@ -12,13 +12,14 @@ namespace Suika.Scripts.Gameplay.Pool
 
         protected override void OnRent(BaseFruit instance)
         {
+            base.OnRent(instance);
             instance.IsMerging = false;
         }
 
         protected override void OnReturn(BaseFruit instance)
         {
-            instance.IsMerging = false;
             instance.transform.position = Vector3.zero;
+            base.OnReturn(instance);
         }
     }
 }

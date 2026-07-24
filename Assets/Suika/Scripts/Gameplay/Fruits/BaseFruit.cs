@@ -22,7 +22,14 @@ namespace Suika.Scripts.Gameplay.Fruits
                 {
                     IsMerging = true;
                     otherFruit.IsMerging = true;
-                    OnMergeCommand.Execute((this, otherFruit));
+                    if (this.GetInstanceID() > otherFruit.GetInstanceID())
+                    {
+                        OnMergeCommand.Execute((this, otherFruit));
+                    }
+                    else
+                    {
+                        otherFruit.OnMergeCommand.Execute((otherFruit, this));
+                    }
                 }
             }
         }

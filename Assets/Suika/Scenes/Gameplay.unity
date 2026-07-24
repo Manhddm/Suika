@@ -1159,7 +1159,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1299,6 +1299,16 @@ MonoBehaviour:
   fruitFactory: {fileID: 247096653}
   fruitPrefabs:
   - {fileID: 6161838929474417679, guid: 7fb1c39030901d141a23d03280925223, type: 3}
+  - {fileID: 7369803892591301544, guid: 9f0df08214b4b9047bb033023cf6b926, type: 3}
+  - {fileID: 2782092550076912328, guid: d5e5a658ba1c585488ed3068493bc624, type: 3}
+  - {fileID: 8179958916327698854, guid: c240df792ce643b486dc18b41c9676a6, type: 3}
+  - {fileID: 2000000003, guid: ba404498c386490db39db56d284951b5, type: 3}
+  - {fileID: 2858143919150736510, guid: a223c1db01a001743a35c9f0066de931, type: 3}
+  - {fileID: 4000000003, guid: 8b40a9fa2712469685b47ff0420d9b37, type: 3}
+  - {fileID: 3000000003, guid: 2be7c2c6c97a41a6b04a018414635b19, type: 3}
+  - {fileID: 6000000003, guid: 69fc154ae08a4392b716bb166a37487f, type: 3}
+  - {fileID: 1000000003, guid: 36e124553df9e354dba132905acc331d, type: 3}
+  - {fileID: 7000000003, guid: ddc2263fc9664223a3e6c166a4f4ada4, type: 3}
   fruitDatabase: {fileID: 11400000, guid: 07ebfd3e11a2679478cb5a2afb004811, type: 2}
 --- !u!4 &2042915445
 Transform:
