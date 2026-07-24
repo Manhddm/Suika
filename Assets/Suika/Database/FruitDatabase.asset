@@ -13,4 +13,37 @@ MonoBehaviour:
   m_Name: FruitDatabase
   m_EditorClassIdentifier: Assembly-CSharp::Suika.Scripts.Database.FruitDatabase
   keys: 0100000002000000030000000400000005000000060000000700000008000000090000000a0000000b000000
-  values: 02000000030000000400000005000000060000000700000008000000090000000a0000000b00000000000000
+  values:
+  - Sprite: {fileID: -2617548873292955220, guid: 5e7b966541994b644b3e1f1f27a6146a, type: 3}
+    FruitType: 1
+    NextFruitType: 2
+  - Sprite: {fileID: 4073388876195926718, guid: 997e6ad35a08d054c9ffdc3064efb4b0, type: 3}
+    FruitType: 2
+    NextFruitType: 3
+  - Sprite: {fileID: -1373030380910277158, guid: 164e2b9677f1201428cd4ad63db9ee80, type: 3}
+    FruitType: 3
+    NextFruitType: 4
+  - Sprite: {fileID: 5152609994343084751, guid: 72263f567b10c444bad430043aba0149, type: 3}
+    FruitType: 4
+    NextFruitType: 5
+  - Sprite: {fileID: 190449800032619706, guid: cb921d6c3ff76d14aab621bcded225e2, type: 3}
+    FruitType: 5
+    NextFruitType: 6
+  - Sprite: {fileID: -5065641840568865517, guid: a32fec2ba7c0f6e4abda4b5eaec8de0e, type: 3}
+    FruitType: 6
+    NextFruitType: 7
+  - Sprite: {fileID: -4163534438935204294, guid: 99119c7e17fcf834f832aa29a7321829, type: 3}
+    FruitType: 7
+    NextFruitType: 8
+  - Sprite: {fileID: 4430678782106951424, guid: f5f22b9b7b0ab9a46a0d11691b6c3b0f, type: 3}
+    FruitType: 8
+    NextFruitType: 9
+  - Sprite: {fileID: -4403128379097342895, guid: 6f5ea971096e68e499ea88ea67b14918, type: 3}
+    FruitType: 9
+    NextFruitType: 10
+  - Sprite: {fileID: 1824402802703635126, guid: 05e84e5b7d51c4243b9fee1c579f0c0c, type: 3}
+    FruitType: 10
+    NextFruitType: 11
+  - Sprite: {fileID: 1189635514300843959, guid: a0629e0eff389a74fbe65983231ab755, type: 3}
+    FruitType: 11
+    NextFruitType: 0

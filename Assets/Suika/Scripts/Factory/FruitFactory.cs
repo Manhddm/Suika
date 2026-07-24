@@ -8,9 +8,10 @@ using UnityEngine;
 
 namespace Suika.Scripts.Factory
 {
-    public class FruitFactory : MonoBehaviour, IFactory<FruitType, BaseFruit>
+    public class FruitFactory : MonoBehaviour, IFactory<FruitType, Vector3, BaseFruit>
     {
         private Dictionary<FruitType, FruitPool> _fruitPools = new Dictionary<FruitType, FruitPool>();
+
         public void Init(List<BaseFruit> fruitPrefabs)
         {
             foreach (var fruitPrefab in fruitPrefabs)
@@ -19,9 +20,11 @@ namespace Suika.Scripts.Factory
                 _fruitPools.TryAdd(fruitPrefab.FruitType, pool);
             }
         }
-        public BaseFruit Create(FruitType type)
+
+        public BaseFruit Create(FruitType type, Vector3 position)
         {
             var fruit = _fruitPools[type].Rent();
+            fruit.transform.position = position;
             return fruit;
         }
     }

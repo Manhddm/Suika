@@ -9,8 +9,17 @@ namespace Suika.Scripts.Database
     public class FruitDatabase : ScriptableObject
     {
         [SerializeField] private List<FruitType> keys = new();
-        [SerializeField] private List<FruitType> values = new();
-        private Dictionary<FruitType, FruitType> _fruitDictionary = new();
+        [SerializeField] private List<FruitMetaData> values = new();
+        private Dictionary<FruitType, FruitMetaData> _fruitDictionary = new();
+
+        private FruitType[] _fruitTypesRandom = new[]
+        {
+            FruitType.Blueberry,
+            FruitType.Cherry,
+            FruitType.Lime,
+            FruitType.Plum,
+            FruitType.Lemon
+        };
 
         private void OnEnable()
         {
@@ -18,42 +27,33 @@ namespace Suika.Scripts.Database
         }
         public FruitType GetNextFruitType(FruitType currentFruitType)
         {
-            if (_fruitDictionary.TryGetValue(currentFruitType, out var nextFruitType))
+            if (_fruitDictionary.TryGetValue(currentFruitType, out var fruitData))
             {
-                return nextFruitType;
+                return fruitData.NextFruitType;
             }
-            return FruitType.None;
+            return FruitType.Blueberry;
+        }
+        public FruitMetaData GetFruitData(FruitType fruitType)
+        {
+            if (_fruitDictionary.TryGetValue(fruitType, out var fruitData))
+            {
+                return fruitData;
+            }
+            throw new Exception($"Fruit type {fruitType} not found in the database.");
+        }
+
+        public FruitType GetRandomFruitType()
+        {
+            return _fruitTypesRandom[UnityEngine.Random.Range(0, _fruitTypesRandom.Length)];
         }
         private void GenerateDictionary()
         {
             _fruitDictionary.Clear();
             for (int i = 0; i < keys.Count; i++)
             {
-                if (keys[i] == FruitType.Watermelon)
-                {
-                    _fruitDictionary[keys[i]] = FruitType.None;
-                    continue;
-                }
+                if (keys[i] == FruitType.None) continue;
                 _fruitDictionary[keys[i]] = values[i];
             }
-        }
-        [ContextMenu("Auto-Generate")]
-        private void AutoGen()
-        {
-            FruitType[] fruitTypes =
-                (FruitType[])Enum.GetValues(typeof(FruitType));
-            for (int i = 1; i < fruitTypes.Length; i++)
-            {
-                if (!keys.Contains(fruitTypes[i]))
-                {
-                    keys.Add(fruitTypes[i]);
-                }
-                if (i+1 < fruitTypes.Length && !values.Contains(fruitTypes[i + 1]))
-                {
-                    values.Add(fruitTypes[i + 1]);
-                }
-            }
-            GenerateDictionary();
         }
     }
 }
