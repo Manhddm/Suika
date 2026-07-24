@@ -13,6 +13,8 @@ namespace Suika.Scripts.Gameplay
     public class BoardController : MonoBehaviour
     {
         [SerializeField] private Transform fruitSpawnPoint;
+        [SerializeField] private Transform minMoveX;
+        [SerializeField] private Transform maxMoveX;
         private FruitFactory _fruitFactory;
         private FruitDatabase _fruitDatabase;
         private InputController _inputController;
@@ -82,6 +84,7 @@ namespace Suika.Scripts.Gameplay
         private async UniTask DropFruit()
         {
             _currentFruit.PhysicsBody.simulated = true;
+            _currentFruit = null; 
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
             PickUpFruit();
         }
@@ -101,6 +104,7 @@ namespace Suika.Scripts.Gameplay
 
             var worldPosition = _mainCamera.ScreenToWorldPoint(
                 new Vector3(position.x, position.y, -_mainCamera.transform.position.z));
+            worldPosition.x = Mathf.Clamp(worldPosition.x, minMoveX.position.x, maxMoveX.position.x);
             worldPosition.y = fruitSpawnPoint.position.y;
             worldPosition.z = fruitSpawnPoint.position.z;
             _currentFruit.transform.position = worldPosition;
